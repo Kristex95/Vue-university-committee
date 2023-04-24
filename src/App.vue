@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HeaderComponent/>
+  <div class="container">
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import HeaderComponent from "@/components/HeaderComponent";
+import {mapState} from "vuex";
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HeaderComponent
+  },
+  computed:{
+    ...mapState(['isLoggedIn'])
+  },
+  mounted() {
+    this.$store.dispatch('fetchClient')
+  },
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{
+    background: #354A61;
+  }
 </style>
