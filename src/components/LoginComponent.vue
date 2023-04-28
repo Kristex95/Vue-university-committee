@@ -19,6 +19,9 @@
         <router-link class="btn col-4 btn-outline-primary" to="/auth/register">Sign up</router-link>
       </div>
     </form>
+    <div>
+      <button @click="loginAuth0">Log in</button>
+    </div>
   </div>
 </template>
 
@@ -53,12 +56,14 @@ export default {
           localStorage.setItem("access_token", data["access_token"])
           localStorage.setItem("refresh_token", data["refresh_token"])
           this.login()
-          console.log("Successfully logged in!")
           this.$router.push("/profile")
         } else console.log ("Couldn't login")
       }catch (error){
         console.log(error)
       }
+    },
+    loginAuth0() {
+      this.$auth0.loginWithRedirect();
     },
     ...mapMutations(['login'])
   },

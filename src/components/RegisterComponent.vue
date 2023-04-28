@@ -61,7 +61,6 @@ export default {
             }
         );
         if(userInfoResponse.ok){
-          console.log("ok!")
           this.$router.push("/auth/login")
         }
         else if(userInfoResponse.status === 403){

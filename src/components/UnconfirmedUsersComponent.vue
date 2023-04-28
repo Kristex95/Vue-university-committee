@@ -48,7 +48,6 @@ export default {
         if(response.ok){
           const data = await response.json();
           this.users = data
-          console.log(data)
         }
         else console.log("no users found")
       }
@@ -61,7 +60,6 @@ export default {
         const response = await sendRequest('/user/confirm/', "POST", {id : id});
 
         if(response.ok){
-          console.log("user confirmed")
           event.target.replaceWith("confirmed")
         }
         else console.log("cannot confirm user")

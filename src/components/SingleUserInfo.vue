@@ -48,7 +48,6 @@ export default {
           const data = await userInfoResponse.json();
           this.user = data;
           this.faculties = this.user.faculties;
-          console.log(data)
         } else console.log("no data")
       } catch (error) {
         console.log(error);

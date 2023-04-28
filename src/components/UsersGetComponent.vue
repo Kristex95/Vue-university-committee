@@ -54,7 +54,6 @@ export default {
         if(response.ok){
           const data = await response.json();
           this.users = data
-          console.log(data)
         }
         else console.log("no data")
       }
