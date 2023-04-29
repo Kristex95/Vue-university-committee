@@ -1,10 +1,20 @@
 <template>
   <table class="table w-75 m-auto bg-white rounded-bottom">
     <tbody>
+      <tr>
+        <th>id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Sum mark</th>
+      </tr>
       <tr v-for="user in users" :key="user.id">
         <td style="width: 3em;"> {{user.id}}</td>
-        <td v-if="user.accepted" class="bg-success text-white">{{user.first_name}} {{user.last_name}} {{user.sum_mark}}</td>
-        <td v-else>{{user.first_name}} {{user.last_name}} {{user.sum_mark}}</td>
+        <td v-if="user.accepted" class="bg-success text-white">{{user.first_name}}</td>
+        <td v-if="user.accepted" class="bg-success text-white">{{user.last_name}}</td>
+        <td v-if="user.accepted" class="bg-success text-white">{{user.sum_mark}}</td>
+        <td v-if="!user.accepted">{{user.first_name}}</td>
+        <td v-if="!user.accepted">{{user.last_name}}</td>
+        <td v-if="!user.accepted">{{user.sum_mark}}</td>
       </tr>
     </tbody>
   </table>

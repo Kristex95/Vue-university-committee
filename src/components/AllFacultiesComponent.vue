@@ -86,6 +86,9 @@ export default {
       }
     },
     async getUserById() {
+      if(!this.isLoggedIn){
+        return;
+      }
       try {
         const userInfoResponse = await sendRequest('/user/client', "GET", null);//await fetch('http://localhost:8080/University_committee_war_exploded/user/' + this.$route.params.id,
 
@@ -99,6 +102,7 @@ export default {
       }
     },
     isSigned(faculty_id){
+      console.log("is signed")
       const arr = this.user.faculties?.filter(fac => fac.id === faculty_id)
       return arr?.length !== 0;
     },
